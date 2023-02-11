@@ -1,4 +1,12 @@
+const cityName = document.getElementById('cityName');;
 const img = document.querySelector('img');
+const form = document.querySelector('form');
+
+form.addEventListener('submit', () => {
+    console.log(cityName.value);
+    getWeather(cityName.value);
+    cityName.value = '';
+});
 
 async function getWeather(city='london') {
     let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=4704dbc56dc3141d2a18ac4fcd685c15`);
