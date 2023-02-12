@@ -11,6 +11,8 @@ const clouds = document.getElementById('clouds');
 const hpa = document.getElementById('hpa');
 const coord = document.getElementById('coord');
 
+const errorLocation = document.getElementById('errorLocation');
+
 
 function writeToDom(data){
     country.textContent = `${data.cityName}, ${data.countryName}`;
@@ -21,26 +23,48 @@ function writeToDom(data){
     clouds.textContent = `clouds ${data.clouds} %,`;
     hpa.textContent = `${data.hpa} hpa`;
     coord.textContent = `[ ${data.coord.lat}, ${data.coord.lon} ]`;
+    errorLocation.textContent = '';
+}
+
+function deleteDomData(){
+    country.textContent = '';
+    countryImg.src = '';
+    condition.textContent = '';
+    temperature.textContent = '';
+    wind.textContent = '';
+    clouds.textContent = '';
+    hpa.textContent = '';
+    coord.textContent = '';
+    img.src = '';
 }
 
 form.addEventListener('submit', () => {
-    console.log(cityName.value);
     getWeather(cityName.value);
     cityName.value = '';
 });
 
 async function getWeather(city='london') {
-    let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=4704dbc56dc3141d2a18ac4fcd685c15&units=metric`);
-    let weatherData = await response.json();
-    // console.log(weatherData);
-    // console.log(processJSONData(weatherData));
-    img.src = `http://openweathermap.org/img/wn/${processJSONData(weatherData).weatherIcon}@2x.png`;
+    try {
+        let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=4704dbc56dc3141d2a18ac4fcd685c15&units=metric`);
+        // console.log(response.status);
 
-    let processedData = processJSONData(weatherData);
-    console.log(processedData);
-    writeToDom(processedData);
+        if (response.status === 404) {
+            console.log(response.status);
+            errorLocation.textContent = "Location not found";
+            deleteDomData();
+            return;
+        }
 
-    return processJSONData(weatherData);
+        let weatherData = await response.json();
+
+        img.src = `http://openweathermap.org/img/wn/${processJSONData(weatherData).weatherIcon}@2x.png`;
+
+        let processedData = processJSONData(weatherData);
+        // console.log(processedData);
+        writeToDom(processedData);
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 getWeather();
