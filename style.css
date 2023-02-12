@@ -88,7 +88,16 @@ hr {
     height: 5rem;
 }
 
-.containerDiv, #appTitle {
+.containerDiv, #appTitle, #errorLocation {
     width: 80%;
     margin-left: 10%;
+}
+
+#errorLocation {
+    background-color: #FCF8E3;
+    color: #585858;
+    height: 3rem;
+    padding-left: 1rem;
+    display: flex;
+    align-items: center;
 }
