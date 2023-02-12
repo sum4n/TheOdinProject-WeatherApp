@@ -1,0 +1,94 @@
+hr {
+    width: 80%;
+    color: rgba(0, 0, 0, 0.192);
+}
+
+#titleDiv {
+    width: 80%;
+    margin-left: 10%;
+}
+
+#appTitle {
+    /* width: 80%; */
+    /* padding-left: 100px; */
+    /* text-align: center; */
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: rgb(197, 98, 6);
+}
+
+#locationForm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #E67A50;
+    height: 8rem;
+}
+
+#cityInput {
+    height: 2rem;
+    border-radius: 18px 0px 0px 18px;
+    /* border: 1px solid black; */
+    border: 1px solid rgba(202, 70, 9, 0.664);
+    border: none;
+    padding-left: 14px;
+}
+
+#cityInput:focus{
+    outline: none;
+}
+
+#getWeatherBtn {
+    height: 2.3rem;
+    border-radius: 0px 18px 18px 0px;
+    border: 1px solid rgba(202, 70, 9, 0.664);
+    background-color: #ee5b21;
+    color: white;
+    font-weight: 600;
+}
+
+#getWeatherBtn:hover {
+    background-color: #b43908;
+}
+
+.containerDiv, .titleDiv, .weatherDiv, .coordDiv {
+    display: flex;
+    gap: 1rem;
+}
+
+.titleDiv {
+    /* color: red; */
+    font-weight: bold;
+}
+
+#location {
+    color: rgb(197, 98, 6);
+}
+
+#condition {
+    font-style: italic;
+}
+
+
+#temperature {
+    background-color: rgb(75, 75, 75);
+    color: white;
+    font-weight: bold;
+    padding: 0px 12px 0px 12px;
+    /* border-radius: 30%; */
+    border-radius: 18px;
+}
+
+#coord {
+    font-style: none;
+    color: rgb(197, 98, 6);
+}
+
+#weatherImg {
+    height: 5rem;
+}
+
+.containerDiv, #appTitle {
+    width: 80%;
+    margin-left: 10%;
+}

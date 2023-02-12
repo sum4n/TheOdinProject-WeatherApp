@@ -1,4 +1,4 @@
-const cityName = document.getElementById('cityName');;
+const cityName = document.getElementById('cityInput');
 const img = document.querySelector('img');
 const form = document.querySelector('form');
 

@@ -10,15 +10,38 @@
 </head>
 <body>
     
-    <h1>The Odin Project: Weather App</h1>
+    <p id="appTitle">The Odin Project: Weather App</p>
     <hr>
-    <form action="#">
-        <label for="cityName">Location</label>
-        <input type="text" id="cityName" required>
+    <form action="#" id="locationForm">
+        <input type="text" id="cityInput" required>
         <button type="submit" id="getWeatherBtn">Get Weather</button>
     </form>
     <hr>
-    <img src="#" alt="Weather">
+    <div class="containerDiv">
+        <img src="#" alt="Weather" id="weatherImg">
+    
+        <div class="weatherContainer">
+    
+            <div class="titleDiv">
+                <p id="location">Kolkata,IN</p>
+                <img src="#" alt="img" id="countryImg">
+                <p id="condition">haze</p>
+            </div>
+    
+            <div class="weatherDiv">
+                <p id="temperature">32°С</p>
+                <p id="wind">wind 6.17 m/s.</p>
+                <p id="clouds">clouds 0%,</p>
+                <p id="hpa">1011 hpa</p>
+    
+            </div>
+    
+            <div class="coordDiv">
+                <p>Geo coords <a href="#" id="coord">Hello</a></p>
+    
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>
