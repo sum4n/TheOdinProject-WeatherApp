@@ -57,8 +57,9 @@ hr {
 }
 
 .titleDiv {
-    /* color: red; */
     font-weight: bold;
+    display: flex;
+    align-items: center;
 }
 
 #location {
@@ -93,11 +94,19 @@ hr {
     margin-left: 10%;
 }
 
-#errorLocation {
+#countryImg {
+    height: .8rem;
+}
+
+#coord {
+    text-decoration: none;
+}
+
+/* #errorLocation {
     background-color: #FCF8E3;
     color: #585858;
     height: 3rem;
     padding-left: 1rem;
     display: flex;
     align-items: center;
-}
+} */
