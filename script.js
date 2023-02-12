@@ -2,6 +2,27 @@ const cityName = document.getElementById('cityInput');
 const img = document.querySelector('img');
 const form = document.querySelector('form');
 
+const country = document.getElementById('location');
+const countryImg = document.getElementById('countryImg');
+const condition = document.getElementById('condition');
+const temperature = document.getElementById('temperature');
+const wind = document.getElementById('wind');
+const clouds = document.getElementById('clouds');
+const hpa = document.getElementById('hpa');
+const coord = document.getElementById('coord');
+
+
+function writeToDom(data){
+    country.textContent = `${data.cityName}, ${data.countryName}`;
+    countryImg.src = `https://openweathermap.org/images/flags/${data.countryName.toLowerCase()}.png`;
+    condition.textContent = data.condition;
+    temperature.textContent = `${data.temp}°С`;
+    wind.textContent = `wind ${data.windSpeed} m/s,`;
+    clouds.textContent = `clouds ${data.clouds} %,`;
+    hpa.textContent = `${data.hpa} hpa`;
+    coord.textContent = `[ ${data.coord.lat}, ${data.coord.lon} ]`;
+}
+
 form.addEventListener('submit', () => {
     console.log(cityName.value);
     getWeather(cityName.value);
@@ -12,8 +33,13 @@ async function getWeather(city='london') {
     let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=4704dbc56dc3141d2a18ac4fcd685c15&units=metric`);
     let weatherData = await response.json();
     // console.log(weatherData);
-    console.log(processJSONData(weatherData));
+    // console.log(processJSONData(weatherData));
     img.src = `http://openweathermap.org/img/wn/${processJSONData(weatherData).weatherIcon}@2x.png`;
+
+    let processedData = processJSONData(weatherData);
+    console.log(processedData);
+    writeToDom(processedData);
+
     return processJSONData(weatherData);
 }
 
