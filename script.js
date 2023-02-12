@@ -9,7 +9,7 @@ form.addEventListener('submit', () => {
 });
 
 async function getWeather(city='london') {
-    let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=4704dbc56dc3141d2a18ac4fcd685c15`);
+    let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=4704dbc56dc3141d2a18ac4fcd685c15&units=metric`);
     let weatherData = await response.json();
     // console.log(weatherData);
     console.log(processJSONData(weatherData));
@@ -20,20 +20,21 @@ async function getWeather(city='london') {
 getWeather();
 
 function processJSONData(data) {
-    const coordLon = data.coord.lon;
-    const coordLat = data.coord.lat;
+    const coord = data.coord;
     const weather1 = data.weather[0].main;
-    const weather2 = data.weather[0].description;
+    const condition = data.weather[0].description;
     const weatherIcon = data.weather[0].icon;
-    const mainTemp = data.main.temp
+    const temp = data.main.temp
     const mainHumidity = data.main.humidity;
     const visibility = data.visibility;
     const windSpeed = data.wind.speed;
     const windDirection = data.wind.deg;
     const dt = data.dt;
-    const sys = data.sys.country;
+    const countryName = data.sys.country;
     const cityName = data.name;
+    const clouds = data.clouds.all;
+    const hpa = data.main.pressure;
     
-    return({coordLon, coordLat, weather1, weather2, mainTemp, mainHumidity, visibility, windSpeed, windDirection, dt, sys, cityName, weatherIcon});
+    return({coord, weather1, condition, temp, mainHumidity, visibility, windSpeed, windDirection, dt, countryName, cityName, weatherIcon, clouds, hpa});
 }
 
