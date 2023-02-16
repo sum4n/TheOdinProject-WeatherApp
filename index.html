@@ -1,48 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
     <title>Weather App</title>
-</head>
-<body>
-    
+  </head>
+  <body>
     <p id="appTitle">The Odin Project: Weather App</p>
-    <hr>
+    <hr />
     <form action="#" id="locationForm">
-        <input type="text" id="cityInput" required>
-        <button type="submit" id="getWeatherBtn">Get Weather</button>
+      <input type="text" id="cityInput" required />
+      <button type="submit" id="getWeatherBtn">Get Weather</button>
     </form>
-    <hr>
+    <hr />
     <p id="errorLocation"></p>
     <div class="containerDiv">
-        <img src="#" id="weatherImg">
-    
-        <div class="weatherContainer">
-    
-            <div class="titleDiv">
-                <p id="location"></p>
-                <img src="#" id="countryImg">
-                <p id="condition"></p>
-            </div>
-    
-            <div class="weatherDiv">
-                <p id="temperature"></p>
-                <p id="wind"></p>
-                <p id="clouds"></p>
-                <p id="hpa"></p>
-    
-            </div>
-    
-            <div class="coordDiv">
-                <p>Geo coords <a href="#" id="coord"></a></p>
-    
-            </div>
-        </div>
-    </div>
+      <img src="#" id="weatherImg" />
 
-</body>
+      <div class="weatherContainer">
+        <div class="titleDiv">
+          <p id="location"></p>
+          <img src="#" id="countryImg" />
+          <p id="condition"></p>
+        </div>
+
+        <div class="weatherDiv">
+          <p id="temperature"></p>
+          <p id="wind"></p>
+          <p id="clouds"></p>
+          <p id="hpa"></p>
+        </div>
+
+        <div class="coordDiv">
+          <p>Geo coords <a href="#" id="coord"></a></p>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
