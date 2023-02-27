@@ -43,9 +43,11 @@ form.addEventListener("submit", () => {
 });
 
 async function getWeather(city = "london") {
+  let time = Date.now();
   try {
     let response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=4704dbc56dc3141d2a18ac4fcd685c15&units=metric`
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=4704dbc56dc3141d2a18ac4fcd685c15&units=metric`,
+      { mode: "cors" }
     );
     // console.log(response.status);
 
@@ -57,8 +59,10 @@ async function getWeather(city = "london") {
     }
 
     let weatherData = await response.json();
+    let timeTaken = Date.now() - time;
+    console.log(`${timeTaken}ms`);
 
-    img.src = `http://openweathermap.org/img/wn/${
+    img.src = `https://openweathermap.org/img/wn/${
       processJSONData(weatherData).weatherIcon
     }@2x.png`;
 
